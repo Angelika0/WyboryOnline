@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_typu_wyborow: 1
+  data_rozpoczecia: 2024-05-21 20:35:52
+  data_zakonczenia: 2024-05-21 20:35:52
+  kryteria_glosowania: MyText
+
+two:
+  id_typu_wyborow: 1
+  data_rozpoczecia: 2024-05-21 20:35:52
+  data_zakonczenia: 2024-05-21 20:35:52
+  kryteria_glosowania: MyText
