@@ -1,0 +1,2 @@
+module WyborcaWyboriesHelper
+end

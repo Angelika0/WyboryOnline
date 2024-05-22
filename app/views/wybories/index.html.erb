@@ -1,0 +1,29 @@
+<h1>Lista Wyborów</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Typ Wyborów</th>
+      <th>Data Rozpoczęcia</th>
+      <th>Data Zakończenia</th>
+      <th>Kryteria Głosowania</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wybories.each do |wybory| %>
+      <tr>
+        <td><%= wybory.id_typu_wyborow %></td>
+        <td><%= wybory.data_rozpoczecia %></td>
+        <td><%= wybory.data_zakonczenia %></td>
+        <td><%= wybory.kryteria_glosowania %></td>
+        <td><%= link_to 'Pokaż', wybory_path(wybory) %></td>
+        <td><%= link_to 'Edytuj', edit_wybory_path(wybory) %></td>
+        <td><%= link_to 'Usuń', wybory, method: :delete, data: { confirm: 'Czy na pewno chcesz usunąć te wybory?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Nowe Wybory', new_wybory_path %>

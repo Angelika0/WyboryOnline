@@ -1,0 +1,2 @@
+module WyborcasHelper
+end

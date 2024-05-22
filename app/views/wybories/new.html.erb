@@ -1,0 +1,40 @@
+<h1>Nowe Wybory</h1>
+
+<%= form_with(model: @wybory, local: true) do |form| %>
+  <% if @wybory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wybory.errors.count, "error") %> uniemożliwiło zapisanie tych wyborów:</h2>
+      <ul>
+        <% @wybory.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_typu_wyborow %>
+    <%= form.number_field :id_typu_wyborow %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_rozpoczecia %>
+    <%= form.datetime_select :data_rozpoczecia %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_zakonczenia %>
+    <%= form.datetime_select :data_zakonczenia %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kryteria_glosowania %>
+    <%= form.text_area :kryteria_glosowania %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Wróć', wybories_path %>

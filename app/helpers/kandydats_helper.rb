@@ -1,0 +1,2 @@
+module KandydatsHelper
+end
