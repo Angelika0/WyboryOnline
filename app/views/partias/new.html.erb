@@ -1,2 +1,26 @@
-<h1>Partias#new</h1>
-<p>Find me in app/views/partias/new.html.erb</p>
+<!-- app/views/kandydats/new.html.erb -->
+<h1>Dodaj nowego kandydata</h1>
+
+<%= form_with(model: @partia, url: partias_path) do |form| %>
+  <% if @partia.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@kandydat.errors.count, "błąd") %> nie pozwoliło zapisać kandydata:</h2>
+      <ul>
+        <% @pasrtia.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="field">
+    <%= form.label :nazwa %>
+    <%= form.text_field :nazwa %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Dodaj Partie' %>
+  </div>
+<% end %>
+
+<%= link_to 'Wróć do listy', kandydats_path %>

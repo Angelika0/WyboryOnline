@@ -1,21 +1,18 @@
-<h1>Szczegóły Wyborów</h1>
+<h1><%= @wybory.tytul %></h1>
 
-<p>
-  <strong>Typ Wyborów:</strong>
-  <%= @wybory.id_typu_wyborow %>
-</p>
-<p>
-  <strong>Data Rozpoczęcia:</strong>
-  <%= @wybory.data_rozpoczecia %>
-</p>
-<p>
-  <strong>Data Zakończenia:</strong>
-  <%= @wybory.data_zakonczenia %>
-</p>
-<p>
-  <strong>Kryteria Głosowania:</strong>
-  <%= @wybory.kryteria_glosowania %>
-</p>
-
-<%= link_to 'Edytuj', edit_wybory_path(@wybory) %> |
-<%= link_to 'Wróć', wybories_path %>
+<h2>Kandydaci</h2>
+<% if @kandydaci.present? %>
+  <% @kandydaci.each do |kandydat| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= kandydat.imie %> <%= kandydat.nazwisko %></h5>
+        <p class="card-text">Rok urodzenia: <%= kandydat.rok_urodzenia %></p>
+        <p class="card-text">Partia: <%= kandydat.partia.try(:nazwa) %></p>
+        <p class="card-text">Liczba głosów: <%= kandydat.ilosc_glosow %></p>
+        <%= button_to 'Oddaj głos', glosuj_kandydat_path(kandydat), method: :post, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p>Brak kandydatów w tych wyborach.</p>
+<% end %>

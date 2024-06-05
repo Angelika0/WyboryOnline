@@ -1,4 +1,4 @@
 class Partia < ApplicationRecord
-    has_many :kandydaci, foreign_key: :id_partii
+    has_many :kandydaci
   end
   

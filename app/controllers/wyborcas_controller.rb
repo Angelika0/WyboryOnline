@@ -14,7 +14,7 @@ class WyborcasController < ApplicationController
   def create
     @wyborca = Wyborca.new(wyborca_params)
     if @wyborca.save
-      redirect_to @wyborca
+      redirect_to root_path, notice: 'Konto zostało założone pomyślnie.'
     else
       render :new
     end
@@ -42,6 +42,6 @@ class WyborcasController < ApplicationController
   private
 
   def wyborca_params
-    params.require(:wyborca).permit(:imie, :nazwisko, :numer_tel, :email)
+    params.require(:wyborca).permit(:imie, :nazwisko, :numer_tel, :email, :password, :password_confirmation)
   end
 end

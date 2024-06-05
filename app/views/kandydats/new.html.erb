@@ -1,2 +1,41 @@
-<h1>Kandydats#new</h1>
-<p>Find me in app/views/kandydats/new.html.erb</p>
+<!-- app/views/kandydats/new.html.erb -->
+<h1>Dodaj nowego kandydata</h1>
+
+<%= form_with(model: @kandydat, url: kandydats_path) do |form| %>
+  <% if @kandydat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@kandydat.errors.count, "błąd") %> nie pozwoliło zapisać kandydata:</h2>
+      <ul>
+        <% @kandydat.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_partii, 'Partia' %>
+    <%= form.collection_select :id_partii, Partia.all, :id, :nazwa, prompt: 'Wybierz partię' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :imie %>
+    <%= form.text_field :imie %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nazwisko %>
+    <%= form.text_field :nazwisko %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rok_urodzenia %>
+    <%= form.date_field :rok_urodzenia %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Dodaj kandydata' %>
+  </div>
+<% end %>
+
+<%= link_to 'Wróć do listy', kandydats_path %>

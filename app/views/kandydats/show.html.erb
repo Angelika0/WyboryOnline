@@ -1,2 +1,10 @@
-<h1>Kandydats#show</h1>
-<p>Find me in app/views/kandydats/show.html.erb</p>
+
+<h1>Szczegóły kandydata</h1>
+
+<p><strong>Imię:</strong> <%= @kandydat.imie %></p>
+<p><strong>Nazwisko:</strong> <%= @kandydat.nazwisko %></p>
+<p><strong>Rok urodzenia:</strong> <%= @kandydat.rok_urodzenia %></p>
+<p><strong>Partia:</strong> <%= @kandydat.id_partii %></p>
+
+
+<%= link_to 'Wróć do listy kandydatów', kandydats_path %>

@@ -10,25 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_21_183630) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_05_094743) do
   create_table "kandydat_wybories", force: :cascade do |t|
-    t.integer "id_kandydata"
-    t.integer "id_wyborow"
+    t.integer "kandydat_id", null: false
+    t.integer "wybory_id", null: false
     t.integer "ilosc_glosow"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["kandydat_id"], name: "index_kandydat_wybories_on_kandydat_id"
+    t.index ["wybory_id"], name: "index_kandydat_wybories_on_wybory_id"
   end
 
   create_table "kandydats", force: :cascade do |t|
-    t.integer "id_partii"
+    t.integer "partia_id"
     t.string "imie"
     t.string "nazwisko"
     t.integer "rok_urodzenia"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "ilosc_glosow", default: 0
   end
 
-  create_table "partie", force: :cascade do |t|
+  create_table "partia", force: :cascade do |t|
     t.string "nazwa"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,6 +57,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_183630) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
   create_table "wybories", force: :cascade do |t|
@@ -63,6 +67,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_183630) do
     t.text "kryteria_glosowania"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tytul"
   end
 
+  add_foreign_key "kandydat_wybories", "kandydats"
+  add_foreign_key "kandydat_wybories", "wybories"
 end

@@ -1,7 +1,7 @@
 class Wybory < ApplicationRecord
-    belongs_to :typ_wyborow, foreign_key: :id_typu_wyborow
-    has_and_belongs_to_many :wyborcy, join_table: :wyborca_wybory, foreign_key: :id_wyborow, association_foreign_key: :id_wyborcy
-    has_many :kandydat_wybory, foreign_key: :id_wyborow
-    has_many :kandydaci, through: :kandydat_wybory
+    belongs_to :typ_wyborow, class_name: 'TypWyborow', foreign_key: 'id_typu_wyborow'
+    has_many :kandydat_wybories
+    has_many :kandydaci, through: :kandydat_wybories, source: :kandydat
+    validates :tytul, presence: true
   end
   

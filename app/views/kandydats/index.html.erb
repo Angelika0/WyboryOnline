@@ -1,2 +1,27 @@
-<h1>Kandydats#index</h1>
-<p>Find me in app/views/kandydats/index.html.erb</p>
+<!-- app/views/kandydats/index.html.erb -->
+<h1>Lista Kandydatów</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Imię</th>
+      <th>Nazwisko</th>
+      <th>Rok urodzenia</th>
+      <th>Partia</th>
+      <!-- Dodaj inne potrzebne kolumny -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @kandydats.each do |kandydat| %>
+      <tr>
+        <td><%= kandydat.imie %></td>
+        <td><%= kandydat.nazwisko %></td>
+        <td><%= kandydat.rok_urodzenia %></td>
+        <td><%= kandydat.partia_id %></td> <!-- Wyświetlanie nazwy partii -->
+        <!-- Dodaj inne potrzebne kolumny -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Dodaj kandydata', new_kandydat_path %>

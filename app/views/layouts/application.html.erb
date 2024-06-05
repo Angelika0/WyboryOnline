@@ -1,34 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekt</title>
+<html>
+  <head>
+    <title>WyboryOnline</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-     <link rel="stylesheet" href="C:\Users\48730\Desktop\Studia semestr IV\projekt_ruby\app\assets\stylesheets\application.css">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  
-   
-</head>
 
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><%= link_to 'Strona główna', root_path %></li>
-               
-            </ul>
-        </nav>
-    </header>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <main>
-        <%= yield %>
-    </main>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/5hb7O91p1QdNpC0XTy5EV6lgrBjuGB4fbu71/0" crossorigin="anonymous">
 
-    <footer>
-        <p>&copy; <%= Time.now.year %> Aplikacja do wyborów. Wszelkie prawa zastrzeżone.</p>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="/">WyboryOnline</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+           </ul>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <%= yield %>
+    </div>
+
+    <footer class="footer text-center text-lg-start mt-4">
+      <div class="text-center p-3">
+        © 2023 WyboryOnline:
+        <a class="text-light" href="https://yourwebsite.com/">yourwebsite.com</a>
+      </div>
     </footer>
-</body>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa5s3be2ee1ihb5C5wtgllFDr" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+r+MXC5pRQ1D1Vaz5T2eGiNX6tGmDz3Xr1Nx2DuR3mP9zdB" crossorigin="anonymous"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </body>
 </html>

@@ -1,4 +1,9 @@
 class Wyborca < ApplicationRecord
-    has_and_belongs_to_many :wybory, join_table: :wyborca_wybory, foreign_key: :id_wyborcy, association_foreign_key: :id_wyborow
+  has_secure_password
+
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, length: { minimum: 6 }, confirmation: true
+  validates :password_confirmation, presence: true
+  validates :imie, :nazwisko, :numer_tel, presence: true
   end
   

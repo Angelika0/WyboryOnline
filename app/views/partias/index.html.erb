@@ -1,2 +1,23 @@
-<h1>Partias#index</h1>
-<p>Find me in app/views/partias/index.html.erb</p>
+<!-- app/views/partie/index.html.erb -->
+<h1>Lista Partii</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nazwa</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <% @partias.each do |partia| %>
+      <tr>
+        <td><%= partia.id %></td>
+        <td><%= partia.nazwa %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Dodaj nową partię', new_partia_path %>

@@ -1,14 +1,7 @@
 Rails.application.routes.draw do
-  namespace :admin do
-      resources :kandydats
-      resources :kandydat_wybories
-      resources :typ_wyborows
-      resources :wyborcas
-      resources :wyborca_wybories
-      resources :wybories
-
-      root to: "kandydats#index"
-    end
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
   get 'partias/index'
   get 'partias/show'
   get 'partias/new'
@@ -65,6 +58,17 @@ Rails.application.routes.draw do
   resources :kandydat_wybories
   resources :wyborca_wybories
   resources :partias
+  
+  resources :wyborcy, only: [:new, :create]
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
+
+  resources :kandydats do
+    post 'glosuj', on: :member
+    get 'dziekuje', on: :member
+  end
   root 'public#home'
   
 end

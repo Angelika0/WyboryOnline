@@ -33,6 +33,17 @@ class KandydatsController < ApplicationController
     end
   end
 
+  def glosuj
+    @kandydat = Kandydat.find(params[:id])
+    # Logika głosowania, np. zwiększanie licznika głosów
+    @kandydat.increment!(:ilosc_glosow)
+
+    redirect_to dziekuje_kandydat_path(@kandydat)
+  end
+  def dziekuje
+    @kandydat = Kandydat.find(params[:id])
+  end
+
   def destroy
     @kandydat = Kandydat.find(params[:id])
     @kandydat.destroy
@@ -42,6 +53,6 @@ class KandydatsController < ApplicationController
   private
 
   def kandydat_params
-    params.require(:kandydat).permit(:id_partii, :imie, :nazwisko, :rok_urodzenia)
+    params.require(:kandydat).permit(:partia_id, :imie, :nazwisko, :rok_urodzenia)
   end
 end

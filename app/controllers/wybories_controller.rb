@@ -5,6 +5,7 @@ class WyboriesController < ApplicationController
 
   def show
     @wybory = Wybory.find(params[:id])
+    @kandydaci = @wybory.kandydaci
   end
 
   def new
@@ -42,6 +43,6 @@ class WyboriesController < ApplicationController
   private
 
   def wybory_params
-    params.require(:wybory).permit(:id_typu_wyborow, :data_rozpoczecia, :data_zakonczenia, :kryteria_glosowania)
+    params.require(:wybory).permit(:id_typu_wyborow, :data_rozpoczecia, :data_zakonczenia, :kryteria_glosowania, :tytul)
   end
 end

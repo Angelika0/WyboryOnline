@@ -1,9 +1,75 @@
-<main>
-    <section id="hero" class="hero">
-        <div class="container">
-            <h1>Witaj na stronie głównej aplikacji do wyborów!</h1>
-            <p>Tutaj możesz dowiedzieć się więcej o najbliższych wyborach oraz procedurze głosowania.</p>
-            <a href="#" class="btn">Zobacz więcej</a>
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-4">Najprostszy program do głosowania online</h1>
+    <p class="lead">Oprogramowanie do przeprowadzania głosowań zdalnych. Szybko i bezpiecznie zbieraj głosy i analizuj wyniki w czasie rzeczywistym.</p>
+    <div class="header-buttons">
+      <%= link_to 'Załóż darmowe konto', new_wyborca_path, class: 'btn btn-outline-dark btn-lg' %>
+      <%= link_to 'Zaloguj się', wybories_index_path, class: 'btn btn-outline-dark btn-lg' %>
+    </div>
+  </div>
+</div>
+
+<div class="container section">
+  <div class="row">
+    <div class="col-md-4">
+      <h2>O nas</h2>
+      <p>Wybory Online to platforma, która pozwala na bezpieczne i łatwe głosowanie z dowolnego miejsca. Nasza misja to ułatwienie procesu wyborczego i zapewnienie jego przejrzystości.</p>
+      <a class="btn btn-primary" href="#">Czytaj więcej »</a>
+    </div>
+    <div class="col-md-4">
+      <h2>Kandydaci</h2>
+      <p>Poznaj kandydatów startujących w wyborach. Sprawdź ich programy, doświadczenie i zobacz, co mają do zaoferowania.</p>
+      <a class="btn btn-primary" href="#">Zobacz kandydatów »</a>
+    </div>
+    <div class="col-md-4">
+      <h2>Głosowanie</h2>
+      <p>Zarejestruj się i oddaj swój głos. Twoje zdanie ma znaczenie, a my zapewniamy pełne bezpieczeństwo Twoich danych.</p>
+      <a class="btn btn-primary" href="#">Głosuj teraz »</a>
+    </div>
+  </div>
+</div>
+
+<div class="container section">
+  <h2 class="section-title">Galeria Kandydatów</h2>
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card">
+        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Kandydat 1">
+        <div class="card-body">
+          <h5 class="card-title">Kandydat 1</h5>
+          <p class="card-text">Krótki opis kandydata 1.</p>
+          <a href="#" class="btn btn-primary">Zobacz profil</a>
         </div>
-    </section>
-</main>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card">
+        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Kandydat 2">
+        <div class="card-body">
+          <h5 class="card-title">Kandydat 2</h5>
+          <p class="card-text">Krótki opis kandydata 2.</p>
+          <a href="#" class="btn btn-primary">Zobacz profil</a>
+        </div>
+      </div>
+    </div>
+    <!-- Dodaj więcej kandydatów w podobny sposób -->
+  </div>
+</div>
+
+<div class="container section">
+  <h2 class="section-title">Dlaczego warto wybrać naszą platformę?</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Bezpieczeństwo</h3>
+      <p>Twoje dane są u nas bezpieczne. Korzystamy z najnowocześniejszych technologii, aby zapewnić pełne bezpieczeństwo procesu wyborczego.</p>
+    </div>
+    <div class="col-md-4">
+      <h3>Przejrzystość</h3>
+      <p>Wyniki wyborów są dostępne w czasie rzeczywistym. Zapewniamy pełną przejrzystość i uczciwość całego procesu.</p>
+    </div>
+    <div class="col-md-4">
+      <h3>Łatwość użycia</h3>
+      <p>Nasza platforma jest intuicyjna i łatwa w obsłudze. Głosowanie online nigdy nie było prostsze.</p>
+    </div>
+  </div>
+</div>

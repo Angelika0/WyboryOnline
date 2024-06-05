@@ -1,0 +1,4 @@
+<h1>Dziękujemy za oddanie głosu!</h1>
+<p>Dziękujemy za oddanie głosu na <%= @kandydat.imie %> <%= @kandydat.nazwisko %>!</p>
+<p>Liczba głosów: <%= @kandydat.ilosc_glosow %></p>
+<%= link_to 'Powrót do wyborów', wybory_path(@kandydat.wybories.first), class: 'btn btn-primary' %>
