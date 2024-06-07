@@ -30,30 +30,8 @@
 </div>
 
 <div class="container section">
-  <h2 class="section-title">Galeria Kandydatów</h2>
-  <div class="row">
-    <div class="col-lg-3 col-md-4 col-6">
-      <div class="card">
-        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Kandydat 1">
-        <div class="card-body">
-          <h5 class="card-title">Kandydat 1</h5>
-          <p class="card-text">Krótki opis kandydata 1.</p>
-          <a href="#" class="btn btn-primary">Zobacz profil</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <div class="card">
-        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Kandydat 2">
-        <div class="card-body">
-          <h5 class="card-title">Kandydat 2</h5>
-          <p class="card-text">Krótki opis kandydata 2.</p>
-          <a href="#" class="btn btn-primary">Zobacz profil</a>
-        </div>
-      </div>
-    </div>
-    <!-- Dodaj więcej kandydatów w podobny sposób -->
-  </div>
+  <h2 class="section-title">Mapa lokalizacji wyborów stacjonarnych</h2>
+  <div id="map" style="height: 500px; width: 100%;"></div>
 </div>
 
 <div class="container section">
@@ -73,3 +51,28 @@
     </div>
   </div>
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&callback=initMap" async defer></script>
+<script>
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 6,
+      center: { lat: 52.237049, lng: 21.017532 } // Centrum Polski
+    });
+
+    var locations = [
+      { lat: 52.229675, lng: 21.012230, title: 'Warszawa' },
+      { lat: 50.064651, lng: 19.944981, title: 'Kraków' },
+      { lat: 51.107883, lng: 17.038538, title: 'Wrocław' }
+      // Dodaj więcej lokalizacji w ten sposób
+    ];
+
+    locations.forEach(function(location) {
+      var marker = new google.maps.Marker({
+        position: { lat: location.lat, lng: location.lng },
+        map: map,
+        title: location.title
+      });
+    });
+  }
+</script>

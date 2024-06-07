@@ -68,6 +68,9 @@ end
 gem 'bootstrap', '~> 5.1.0'
 gem 'sassc-rails'
 gem 'bcrypt', '~> 3.1.7'
+gem 'dotenv-rails', groups: [:development, :test]
+
+
 
 
 

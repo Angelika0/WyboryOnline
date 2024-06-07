@@ -1,5 +1,16 @@
 <h1>Załóż darmowe konto</h1>
 <%= form_with(model: @wyborca, url: wyborcas_path, local: true) do |form| %>
+  <% if @wyborca.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wyborca.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% @wyborca.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <%= form.label :imie %>
     <%= form.text_field :imie, class: 'form-control' %>

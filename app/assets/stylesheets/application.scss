@@ -16,35 +16,57 @@ h1, h2, h3, h4, h5, h6 {
   color: #333;
 }
 
-.table {
-  width: 100%;
-  margin-bottom: 1rem;
-  color: #212529;
-  background-color: #fff;
-  border: 1px solid #dee2e6;
+.section {
+  padding: 4rem 0;
+  background-color: #ffffff;
   border-radius: 0.5rem;
-  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Styles for the map */
+#map {
+  height: 500px;
+  width: 100%;
+}
+
+.jumbotron {
+  background-color: #ffffff;
+  padding: 4rem 2rem;
+  text-align: left;
+  border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.table th,
-.table td {
-  padding: 0.75rem;
-  vertical-align: middle;
-  border-top: 1px solid #dee2e6;
+.jumbotron h1 {
+  font-weight: bold;
 }
 
-.table thead th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #dee2e6;
+.jumbotron p.lead {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
 }
 
-.table tbody + tbody {
-  border-top: 2px solid #dee2e6;
+.header-buttons .btn {
+  margin-right: 1rem;
+  font-weight: bold;
 }
 
-.table-hover tbody tr:hover {
-  background-color: #f8f9fa;
+.header-buttons .btn-outline-dark {
+  color: #333;
+  border-color: #333;
+}
+
+.header-buttons .btn-outline-dark:hover {
+  color: white;
+  background-color: #333;
+  border-color: #333;
 }
 
 .table td .date {
