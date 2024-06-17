@@ -40,6 +40,10 @@ class WyboriesController < ApplicationController
     redirect_to wybories_path
   end
 
+  def wyniki
+    @zakonczone_wybory = Wybory.where('data_zakonczenia < ?', Time.current).order(data_zakonczenia: :desc)
+  end
+
   private
 
   def wybory_params

@@ -1,0 +1,25 @@
+<h1>Wyniki Zakończonych Wyborów</h1>
+
+<% @zakonczone_wybory.each do |wybory| %>
+  <h2><%= wybory.tytul %></h2>
+  <p>Data zakończenia: <%= wybory.data_zakonczenia.strftime('%d-%m-%Y') %></p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Ilość Głosów</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% wybory.kandydaci.order(ilosc_glosow: :desc).each do |kandydat| %>
+        <tr>
+          <td><%= kandydat.imie %></td>
+          <td><%= kandydat.nazwisko %></td>
+          <td><%= kandydat.ilosc_glosow %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

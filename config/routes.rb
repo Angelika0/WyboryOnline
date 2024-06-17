@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :kandydats
+      resources :kandydat_wybories
+      resources :typ_wyborows
+      resources :wyborcas
+      resources :wyborca_wybories
+      resources :wybories
+
+      root to: "kandydats#index"
+    end
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -53,7 +63,11 @@ Rails.application.routes.draw do
   get 'wyborcas/destroy'
   resources :wyborcas
   resources :typ_wyborows
-  resources :wybories
+  resources :wybories do
+    collection do
+      get 'wyniki'
+    end
+  end
   resources :kandydats
   resources :kandydat_wybories
   resources :wyborca_wybories
@@ -67,6 +81,6 @@ Rails.application.routes.draw do
     post 'glosuj', on: :member
     get 'dziekuje', on: :member
   end
+
   root 'public#home'
-  
 end

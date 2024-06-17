@@ -9,13 +9,13 @@ class KandydatDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    id_partii: Field::Number,
+    ilosc_glosow: Field::Number,
     imie: Field::String,
-    kandydat_wybory: Field::HasMany,
+    kandydat_wybories: Field::HasMany,
     nazwisko: Field::String,
     partia: Field::BelongsTo,
     rok_urodzenia: Field::Number,
-    wybory: Field::HasMany,
+    wybories: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -27,22 +27,22 @@ class KandydatDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    id_partii
+    ilosc_glosow
     imie
-    kandydat_wybory
+    kandydat_wybories
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    id_partii
+    ilosc_glosow
     imie
-    kandydat_wybory
+    kandydat_wybories
     nazwisko
     partia
     rok_urodzenia
-    wybory
+    wybories
     created_at
     updated_at
   ].freeze
@@ -51,13 +51,13 @@ class KandydatDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    id_partii
+    ilosc_glosow
     imie
-    kandydat_wybory
+    kandydat_wybories
     nazwisko
     partia
     rok_urodzenia
-    wybory
+    wybories
   ].freeze
 
   # COLLECTION_FILTERS

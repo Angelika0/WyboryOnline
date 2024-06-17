@@ -13,7 +13,7 @@ class WyborcaDashboard < Administrate::BaseDashboard
     imie: Field::String,
     nazwisko: Field::String,
     numer_tel: Field::String,
-    wybory: Field::HasMany,
+    password_digest: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -38,7 +38,7 @@ class WyborcaDashboard < Administrate::BaseDashboard
     imie
     nazwisko
     numer_tel
-    wybory
+    password_digest
     created_at
     updated_at
   ].freeze
@@ -51,7 +51,7 @@ class WyborcaDashboard < Administrate::BaseDashboard
     imie
     nazwisko
     numer_tel
-    wybory
+    password_digest
   ].freeze
 
   # COLLECTION_FILTERS

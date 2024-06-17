@@ -13,10 +13,10 @@ class WyboryDashboard < Administrate::BaseDashboard
     data_zakonczenia: Field::DateTime,
     id_typu_wyborow: Field::Number,
     kandydaci: Field::HasMany,
-    kandydat_wybory: Field::HasMany,
+    kandydat_wybories: Field::HasMany,
     kryteria_glosowania: Field::Text,
     typ_wyborow: Field::BelongsTo,
-    wyborcy: Field::HasMany,
+    tytul: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -41,10 +41,10 @@ class WyboryDashboard < Administrate::BaseDashboard
     data_zakonczenia
     id_typu_wyborow
     kandydaci
-    kandydat_wybory
+    kandydat_wybories
     kryteria_glosowania
     typ_wyborow
-    wyborcy
+    tytul
     created_at
     updated_at
   ].freeze
@@ -57,10 +57,10 @@ class WyboryDashboard < Administrate::BaseDashboard
     data_zakonczenia
     id_typu_wyborow
     kandydaci
-    kandydat_wybory
+    kandydat_wybories
     kryteria_glosowania
     typ_wyborow
-    wyborcy
+    tytul
   ].freeze
 
   # COLLECTION_FILTERS
