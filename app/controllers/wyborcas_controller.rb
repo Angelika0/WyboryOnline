@@ -14,7 +14,7 @@ class WyborcasController < ApplicationController
   def create
     @wyborca = Wyborca.new(wyborca_params)
     if @wyborca.save
-      UserMailer.registration_confirmation(@wyborca).deliver_now
+      # UserMailer.registration_confirmation(@wyborca).deliver_now
       redirect_to root_path, notice: 'Konto zostało założone pomyślnie.'
     else
       render :new

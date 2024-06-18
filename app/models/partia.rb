@@ -1,4 +1,5 @@
 class Partia < ApplicationRecord
-    has_many :kandydaci
+    self.table_name = "partias"
+    has_many :kandydats
   end
   

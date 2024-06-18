@@ -10,8 +10,10 @@ class KandydatWyboryDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     ilosc_glosow: Field::Number,
+    kandydat_id: Field::Number,
     kandydat: Field::BelongsTo,
     wybory: Field::BelongsTo,
+    wybory_id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -24,8 +26,8 @@ class KandydatWyboryDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     ilosc_glosow
+    kandydat_id
     kandydat
-    wybory
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -33,8 +35,10 @@ class KandydatWyboryDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     ilosc_glosow
+    kandydat_id
     kandydat
     wybory
+    wybory_id
     created_at
     updated_at
   ].freeze
@@ -44,8 +48,10 @@ class KandydatWyboryDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     ilosc_glosow
+    kandydat_id
     kandydat
     wybory
+    wybory_id
   ].freeze
 
   # COLLECTION_FILTERS

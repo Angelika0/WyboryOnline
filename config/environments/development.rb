@@ -87,9 +87,10 @@ Rails.application.configure do
     port:                 587,
     domain:               'gmail.com',
     user_name:            'wyboryonlineprojekt2@gmail.com',
-    password:             'WyboryOnline',
+    password:             'hej',
     authentication:       'plain',
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
+    openssl_verify_mode: 'none'
   }
   config.action_mailer.raise_delivery_errors = true
 config.action_mailer.perform_deliveries = true

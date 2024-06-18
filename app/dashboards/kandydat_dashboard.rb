@@ -13,6 +13,7 @@ class KandydatDashboard < Administrate::BaseDashboard
     imie: Field::String,
     kandydat_wybories: Field::HasMany,
     nazwisko: Field::String,
+    partia_id: Field::Number,
     partia: Field::BelongsTo,
     rok_urodzenia: Field::Number,
     wybories: Field::HasMany,
@@ -40,6 +41,7 @@ class KandydatDashboard < Administrate::BaseDashboard
     imie
     kandydat_wybories
     nazwisko
+    partia_id
     partia
     rok_urodzenia
     wybories
@@ -55,6 +57,7 @@ class KandydatDashboard < Administrate::BaseDashboard
     imie
     kandydat_wybories
     nazwisko
+    partia_id
     partia
     rok_urodzenia
     wybories

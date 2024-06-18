@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :wyborcas
       resources :wyborca_wybories
       resources :wybories
+      resources :partias
 
       root to: "kandydats#index"
     end

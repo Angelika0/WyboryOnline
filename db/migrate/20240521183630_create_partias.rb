@@ -1,6 +1,6 @@
 class CreatePartias < ActiveRecord::Migration[6.0]
   def change
-    create_table :partia do |t|
+    create_table :partias do |t|
       t.string :nazwa
       # inne pola dla partii
       t.timestamps

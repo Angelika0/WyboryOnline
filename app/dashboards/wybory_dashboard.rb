@@ -12,8 +12,8 @@ class WyboryDashboard < Administrate::BaseDashboard
     data_rozpoczecia: Field::DateTime,
     data_zakonczenia: Field::DateTime,
     id_typu_wyborow: Field::Number,
-    kandydaci: Field::HasMany,
     kandydat_wybories: Field::HasMany,
+    kandydats: Field::HasMany,
     kryteria_glosowania: Field::Text,
     typ_wyborow: Field::BelongsTo,
     tytul: Field::String,
@@ -40,8 +40,8 @@ class WyboryDashboard < Administrate::BaseDashboard
     data_rozpoczecia
     data_zakonczenia
     id_typu_wyborow
-    kandydaci
     kandydat_wybories
+    kandydats
     kryteria_glosowania
     typ_wyborow
     tytul
@@ -56,8 +56,8 @@ class WyboryDashboard < Administrate::BaseDashboard
     data_rozpoczecia
     data_zakonczenia
     id_typu_wyborow
-    kandydaci
     kandydat_wybories
+    kandydats
     kryteria_glosowania
     typ_wyborow
     tytul
