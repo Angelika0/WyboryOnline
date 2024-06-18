@@ -1,11 +1,15 @@
 class WyboriesController < ApplicationController
   def index
-    @wybories = Wybory.all
+    @wybories = Wybory.where("data_zakonczenia >= ?", Time.current)
   end
 
   def show
     @wybory = Wybory.find(params[:id])
-    @kandydaci = @wybory.kandydaci
+    if @wybory.data_zakonczenia < Time.current
+      redirect_to root_path, alert: 'Te wybory już się zakończyły.'
+    else
+      @kandydaci = @wybory.kandydats
+    end
   end
 
   def new

@@ -11,8 +11,8 @@ class WyborcaWyboryDashboard < Administrate::BaseDashboard
     id: Field::Number,
     id_wyborcy: Field::Number,
     id_wyborow: Field::Number,
-    wyborcas: Field::BelongsTo,
-    wybories: Field::BelongsTo,
+    wyborca: Field::BelongsTo,
+    wybory: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -26,7 +26,7 @@ class WyborcaWyboryDashboard < Administrate::BaseDashboard
     id
     id_wyborcy
     id_wyborow
-    wyborcas
+    wyborca
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,8 +35,8 @@ class WyborcaWyboryDashboard < Administrate::BaseDashboard
     id
     id_wyborcy
     id_wyborow
-    wyborcas
-    wybories
+    wyborca
+    wybory
     created_at
     updated_at
   ].freeze
@@ -47,8 +47,8 @@ class WyborcaWyboryDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     id_wyborcy
     id_wyborow
-    wyborcas
-    wybories
+    wyborca
+    wybory
   ].freeze
 
   # COLLECTION_FILTERS

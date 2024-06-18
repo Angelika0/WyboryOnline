@@ -14,8 +14,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :id_partii, 'Partia' %>
-    <%= form.collection_select :id_partii, Partia.all, :id, :nazwa, prompt: 'Wybierz partię' %>
+    <%= form.label :partia_id, 'Partia' %>
+    <%= form.collection_select :partia_id, Partia.all, :id, :nazwa, prompt: 'Wybierz partię' %>
   </div>
 
   <div class="field">

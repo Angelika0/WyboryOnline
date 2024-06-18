@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_05_094743) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_18_153250) do
   create_table "kandydat_wybories", force: :cascade do |t|
     t.integer "kandydat_id", null: false
     t.integer "wybory_id", null: false
@@ -57,7 +57,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_094743) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
     t.string "password_digest"
+    t.index ["reset_password_token"], name: "index_wyborcas_on_reset_password_token", unique: true
   end
 
   create_table "wybories", force: :cascade do |t|
@@ -68,6 +73,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_094743) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tytul"
+    t.boolean "zakonczone"
   end
 
   add_foreign_key "kandydat_wybories", "kandydats"

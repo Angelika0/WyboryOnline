@@ -1,7 +1,7 @@
 <h1><%= @wybory.tytul %></h1>
 
 <h2>Kandydaci</h2>
-<% if @kandydaci.present? %>
+<% if @kandydaci.any? %>
   <% @kandydaci.each do |kandydat| %>
     <div class="card mb-3">
       <div class="card-body">
@@ -9,7 +9,7 @@
         <p class="card-text">Rok urodzenia: <%= kandydat.rok_urodzenia %></p>
         <p class="card-text">Partia: <%= kandydat.partia.try(:nazwa) %></p>
         <p class="card-text">Liczba głosów: <%= kandydat.ilosc_glosow %></p>
-        <%= button_to 'Oddaj głos', glosuj_kandydat_path(kandydat), method: :post, class: 'btn btn-primary' %>
+        <%= button_to 'Oddaj głos', glosuj_kandydat_path(kandydat, wybory_id: @wybory.id), method: :post, class: 'btn btn-primary' %>
       </div>
     </div>
   <% end %>

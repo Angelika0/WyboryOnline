@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id_partii: 1
+  partia_id: 1
   imie: MyString
   nazwisko: MyString
   rok_urodzenia: 1
 
 two:
-  id_partii: 1
+  partia_id: 1
   imie: MyString
   nazwisko: MyString
   rok_urodzenia: 1

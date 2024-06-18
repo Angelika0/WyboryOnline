@@ -9,59 +9,61 @@ Rails.application.routes.draw do
       resources :partias
 
       root to: "kandydats#index"
-    end
+  end
+
   get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
+  post 'sessions/create'
+  delete 'sessions/destroy'
   get 'partias/index'
   get 'partias/show'
   get 'partias/new'
-  get 'partias/create'
+  post 'partias/create'
   get 'partias/edit'
-  get 'partias/update'
-  get 'partias/destroy'
+  patch 'partias/update'
+  delete 'partias/destroy'
   get 'wyborca_wybories/index'
   get 'wyborca_wybories/show'
   get 'wyborca_wybories/new'
-  get 'wyborca_wybories/create'
+  post 'wyborca_wybories/create'
   get 'wyborca_wybories/edit'
-  get 'wyborca_wybories/update'
-  get 'wyborca_wybories/destroy'
+  patch 'wyborca_wybories/update'
+  delete 'wyborca_wybories/destroy'
   get 'kandydat_wybories/index'
   get 'kandydat_wybories/show'
   get 'kandydat_wybories/new'
-  get 'kandydat_wybories/create'
+  post 'kandydat_wybories/create'
   get 'kandydat_wybories/edit'
-  get 'kandydat_wybories/update'
-  get 'kandydat_wybories/destroy'
+  patch 'kandydat_wybories/update'
+  delete 'kandydat_wybories/destroy'
   get 'kandydats/index'
   get 'kandydats/show'
   get 'kandydats/new'
-  get 'kandydats/create'
+  post 'kandydats/create'
   get 'kandydats/edit'
-  get 'kandydats/update'
-  get 'kandydats/destroy'
+  patch 'kandydats/update'
+  delete 'kandydats/destroy'
   get 'typ_wyborows/index'
   get 'typ_wyborows/show'
   get 'typ_wyborows/new'
-  get 'typ_wyborows/create'
+  post 'typ_wyborows/create'
   get 'typ_wyborows/edit'
-  get 'typ_wyborows/update'
-  get 'typ_wyborows/destroy'
+  patch 'typ_wyborows/update'
+  delete 'typ_wyborows/destroy'
   get 'wybories/index'
   get 'wybories/show'
   get 'wybories/new'
-  get 'wybories/create'
+  post 'wybories/create'
   get 'wybories/edit'
-  get 'wybories/update'
-  get 'wybories/destroy'
+  patch 'wybories/update'
+  delete 'wybories/destroy'
   get 'wyborcas/index'
   get 'wyborcas/show'
   get 'wyborcas/new'
-  get 'wyborcas/create'
+  post 'wyborcas/create'
   get 'wyborcas/edit'
-  get 'wyborcas/update'
-  get 'wyborcas/destroy'
+  patch 'wyborcas/update'
+  delete 'wyborcas/destroy'
+  
   resources :wyborcas
   resources :typ_wyborows
   resources :wybories do
@@ -69,19 +71,17 @@ Rails.application.routes.draw do
       get 'wyniki'
     end
   end
-  resources :kandydats
-  resources :kandydat_wybories
-  resources :wyborca_wybories
-  resources :partias
-  
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
-
   resources :kandydats do
     post 'glosuj', on: :member
     get 'dziekuje', on: :member
   end
+  resources :kandydat_wybories
+  resources :wyborca_wybories
+  resources :partias
+  
+  get '/logout', to: 'sessions#destroy', as: 'logout'
+  get '/login', to: 'sessions#new', as: 'login'
+  post '/login', to: 'sessions#create'
 
   root 'public#home'
 end

@@ -1,37 +1,16 @@
-<h1>Lista Wyborów</h1>
-<% @wybories.each do |wybory| %>
-  <div class="card mb-3">
-    <div class="card-body">
-      <h2 class="card-title"><%= wybory.tytul %></h2>
-      <p class="card-text"><%= wybory.kryteria_glosowania %></p>
-      <p class="card-text">Data rozpoczęcia: <%= wybory.data_rozpoczecia %></p>
-      <p class="card-text">Data zakończenia: <%= wybory.data_zakonczenia %></p>
-      <p class="card-text">Czas do zakończenia: <span id="czas_<%= wybory.id %>"><%= wybory.czas_do_zakonczenia %></span></p>
-      <%= link_to 'Zobacz szczegóły', wybory_path(wybory), class: 'btn btn-primary' %>
+<h1>Lista wyborów</h1>
+
+<% if @wybories.any? %>
+  <% @wybories.each do |wybory| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= wybory.tytul %></h5>
+        <p class="card-text">Data rozpoczęcia: <%= wybory.data_rozpoczecia %></p>
+        <p class="card-text">Data zakończenia: <%= wybory.data_zakonczenia %></p>
+        <%= link_to 'Zobacz szczegóły', wybory_path(wybory), class: 'btn btn-primary' %>
+      </div>
     </div>
-  </div>
+  <% end %>
+<% else %>
+  <p>Brak aktywnych wyborów.</p>
 <% end %>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    function updateCountdown(id, endTime) {
-      var now = new Date().getTime();
-      var distance = new Date(endTime).getTime() - now;
-      
-      if (distance > 0) {
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        document.getElementById("czas_" + id).innerHTML = hours + ":" + minutes + ":" + seconds;
-      } else {
-        document.getElementById("czas_" + id).innerHTML = "Wybory zakończone";
-      }
-    }
-
-    <% @wybories.each do |wybory| %>
-      setInterval(function() {
-        updateCountdown(<%= wybory.id %>, "<%= wybory.data_zakonczenia %>");
-      }, 1000);
-    <% end %>
-  });
-</script>

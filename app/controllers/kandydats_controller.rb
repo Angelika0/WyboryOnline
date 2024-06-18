@@ -35,10 +35,21 @@ class KandydatsController < ApplicationController
 
   def glosuj
     @kandydat = Kandydat.find(params[:id])
-    # Logika głosowania, np. zwiększanie licznika głosów
-    @kandydat.increment!(:ilosc_glosow)
+    @wybory = Wybory.find(params[:wybory_id])
 
-    redirect_to dziekuje_kandydat_path(@kandydat)
+    if @wybory.data_zakonczenia < Time.current
+      redirect_to root_path, alert: 'Te wybory już się zakończyły.'
+      return
+    end
+
+    @wyborca_wybory = WyborcaWybory.find_by(id_wyborcy: current_wyborca.id, id_wyborow: @wybory.id)
+
+    if @wyborca_wybory
+      @kandydat.increment!(:ilosc_glosow)
+      redirect_to dziekuje_kandydat_path(@kandydat)
+    else
+      redirect_to root_path, alert: 'Nie masz uprawnień do głosowania.'
+    end
   end
   def dziekuje
     @kandydat = Kandydat.find(params[:id])
@@ -51,6 +62,7 @@ class KandydatsController < ApplicationController
   end
 
   private
+ 
 
   def kandydat_params
     params.require(:kandydat).permit(:partia_id, :imie, :nazwisko, :rok_urodzenia)
