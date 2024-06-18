@@ -51,6 +51,6 @@ class WyboriesController < ApplicationController
   private
 
   def wybory_params
-    params.require(:wybory).permit(:id_typu_wyborow, :data_rozpoczecia, :data_zakonczenia, :kryteria_glosowania, :tytul)
+    params.require(:wybory).permit(:tytul, :id_typu_wyborow, :data_rozpoczecia, :data_zakonczenia, :kryteria_glosowania, :max_votes)
   end
 end

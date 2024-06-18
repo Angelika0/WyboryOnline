@@ -5,6 +5,7 @@ class CreateWyborcas < ActiveRecord::Migration[7.1]
       t.string :nazwisko
       t.string :numer_tel
       t.string :email
+     
 
       t.timestamps
     end

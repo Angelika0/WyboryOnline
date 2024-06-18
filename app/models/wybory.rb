@@ -6,6 +6,7 @@ class Wybory < ApplicationRecord
   validates :tytul, presence: true
   validates :data_rozpoczecia, presence: true
   validates :data_zakonczenia, presence: true
+  validates :max_votes, numericality: { only_integer: true, greater_than: 0 }
 
   scope :active, -> { where(zakonczone: false) }
   scope :completed, -> { where(zakonczone: true) }

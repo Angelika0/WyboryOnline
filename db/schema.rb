@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_18_153250) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_18_224759) do
   create_table "kandydat_wybories", force: :cascade do |t|
     t.integer "kandydat_id", null: false
     t.integer "wybory_id", null: false
-    t.integer "ilosc_glosow"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["kandydat_id"], name: "index_kandydat_wybories_on_kandydat_id"
@@ -26,9 +25,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_153250) do
     t.string "imie"
     t.string "nazwisko"
     t.integer "rok_urodzenia"
+    t.integer "ilosc_glosow"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "ilosc_glosow", default: 0
   end
 
   create_table "partias", force: :cascade do |t|
@@ -48,6 +47,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_153250) do
     t.integer "id_wyborow"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "uprawniony", default: false, null: false
   end
 
   create_table "wyborcas", force: :cascade do |t|
@@ -57,12 +57,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_153250) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at", precision: nil
-    t.datetime "remember_created_at", precision: nil
     t.string "password_digest"
-    t.index ["reset_password_token"], name: "index_wyborcas_on_reset_password_token", unique: true
+    t.integer "liczba_glosow", default: 0
   end
 
   create_table "wybories", force: :cascade do |t|
@@ -70,10 +66,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_153250) do
     t.datetime "data_rozpoczecia"
     t.datetime "data_zakonczenia"
     t.text "kryteria_glosowania"
+    t.string "tytul"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "tytul"
-    t.boolean "zakonczone"
+    t.integer "max_votes", default: 1
   end
 
   add_foreign_key "kandydat_wybories", "kandydats"

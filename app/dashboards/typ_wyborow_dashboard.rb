@@ -10,7 +10,7 @@ class TypWyborowDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     typ: Field::String,
-    wybory: Field::HasMany,
+    wybories: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -23,7 +23,7 @@ class TypWyborowDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     typ
-    wybory
+    wybories
     created_at
   ].freeze
 
@@ -32,7 +32,7 @@ class TypWyborowDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     typ
-    wybory
+    wybories
     created_at
     updated_at
   ].freeze
@@ -42,7 +42,7 @@ class TypWyborowDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     typ
-    wybory
+    
   ].freeze
 
   # COLLECTION_FILTERS

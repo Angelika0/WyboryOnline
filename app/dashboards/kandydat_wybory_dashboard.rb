@@ -9,7 +9,7 @@ class KandydatWyboryDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    ilosc_glosow: Field::Number,
+    
     kandydat_id: Field::Number,
     kandydat: Field::BelongsTo,
     wybory: Field::BelongsTo,
@@ -25,7 +25,7 @@ class KandydatWyboryDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    ilosc_glosow
+  
     kandydat_id
     kandydat
   ].freeze
@@ -34,7 +34,7 @@ class KandydatWyboryDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    ilosc_glosow
+   
     kandydat_id
     kandydat
     wybory
@@ -47,7 +47,7 @@ class KandydatWyboryDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    ilosc_glosow
+    
     kandydat_id
     kandydat
     wybory

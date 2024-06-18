@@ -1,16 +1,22 @@
 <h1>Nowe Wybory</h1>
 
-<%= form_with(model: @wybory, local: true) do |form| %>
-  <% if @wybory.errors.any? %>
+<%= form_with(model: wybory, local: true) do |form| %>
+  <% if wybory.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@wybory.errors.count, "error") %> uniemożliwiło zapisanie tych wyborów:</h2>
+      <h2><%= pluralize(wybory.errors.count, "error") %> prohibited this wybory from being saved:</h2>
+
       <ul>
-        <% @wybory.errors.full_messages.each do |message| %>
+        <% wybory.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
+
+  <div class="field">
+    <%= form.label :tytul %>
+    <%= form.text_field :tytul %>
+  </div>
 
   <div class="field">
     <%= form.label :id_typu_wyborow %>
@@ -32,9 +38,15 @@
     <%= form.text_area :kryteria_glosowania %>
   </div>
 
+  <div class="field">
+    <%= form.label :max_votes %>
+    <%= form.number_field :max_votes %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
 
 <%= link_to 'Wróć', wybories_path %>

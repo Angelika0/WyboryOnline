@@ -15,6 +15,7 @@ class WyboryDashboard < Administrate::BaseDashboard
     kandydat_wybories: Field::HasMany,
     kandydats: Field::HasMany,
     kryteria_glosowania: Field::Text,
+    max_votes: Field::Number,
     typ_wyborow: Field::BelongsTo,
     tytul: Field::String,
     created_at: Field::DateTime,
@@ -43,6 +44,7 @@ class WyboryDashboard < Administrate::BaseDashboard
     kandydat_wybories
     kandydats
     kryteria_glosowania
+    max_votes
     typ_wyborow
     tytul
     created_at
@@ -55,7 +57,7 @@ class WyboryDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     data_rozpoczecia
     data_zakonczenia
-    id_typu_wyborow
+    max_votes
     kandydat_wybories
     kandydats
     kryteria_glosowania

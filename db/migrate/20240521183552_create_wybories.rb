@@ -5,7 +5,8 @@ class CreateWybories < ActiveRecord::Migration[7.1]
       t.datetime :data_rozpoczecia
       t.datetime :data_zakonczenia
       t.text :kryteria_glosowania
-
+      t.string :tytul
+      
       t.timestamps
     end
   end
