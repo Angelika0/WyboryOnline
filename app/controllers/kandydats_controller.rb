@@ -58,7 +58,9 @@ class KandydatsController < ApplicationController
     @kandydat = Kandydat.find(params[:id])
     @wybory = Wybory.find(params[:wybory_id])
   
-    if current_wyborca.liczba_glosow < @wybory.max_votes
+    if @wybory.data_rozpoczecia > Time.now
+      redirect_to @wybory, alert: 'Wybory jeszcze się nie rozpoczęły.'
+    elsif current_wyborca.liczba_glosow < @wybory.max_votes
       @kandydat.increment!(:ilosc_glosow)
       current_wyborca.increment!(:liczba_glosow)
       redirect_to @wybory, notice: 'Głos został oddany.'
