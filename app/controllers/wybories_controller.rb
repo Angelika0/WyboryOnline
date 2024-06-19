@@ -1,81 +1,56 @@
-class WyborcasController < ApplicationController
-  # Wyświetla listę wszystkich wyborców.
-  #
-  # @return [void]
+class WyboriesController < ApplicationController
   def index
-    @wyborcy = Wyborca.all
-    Rails.logger.info "Wyświetlono listę wszystkich wyborców."
+    @wybories = Wybory.where("data_zakonczenia >= ?", Time.current)
   end
 
-  # Wyświetla szczegóły konkretnego wyborcy.
-  #
-  # @return [void]
   def show
-    @wyborca = Wyborca.find(params[:id])
-    Rails.logger.info "Wyświetlono szczegóły wyborcy o ID: #{@wyborca.id}."
-  end
-
-  # Inicjuje nowy obiekt wyborcy.
-  #
-  # @return [void]
-  def new
-    @wyborca = Wyborca.new
-    Rails.logger.info "Inicjowano nowy obiekt wyborcy."
-  end
-
-  # Tworzy nowego wyborcę na podstawie podanych parametrów.
-  #
-  # @return [void]
-  def create
-    @wyborca = Wyborca.new(wyborca_params)
-    if @wyborca.save
-      # UserMailer.registration_confirmation(@wyborca).deliver_now
-      Rails.logger.info "Utworzono nowego wyborcę o ID: #{@wyborca.id}."
-      redirect_to root_path, notice: 'Konto zostało założone pomyślnie.'
+    @wybory = Wybory.find(params[:id])
+    if @wybory.data_zakonczenia < Time.current
+      redirect_to root_path, alert: 'Te wybory już się zakończyły.'
     else
-      Rails.logger.warn "Nie udało się utworzyć nowego wyborcy. Błędy: #{@wyborca.errors.full_messages.join(', ')}"
+      @kandydaci = @wybory.kandydats
+    end
+  end
+
+  def new
+    @wybory = Wybory.new
+  end
+
+  def create
+    @wybory = Wybory.new(wybory_params)
+    if @wybory.save
+      redirect_to @wybory, notice: 'Wybory zostały pomyślnie utworzone.'
+    else
       render :new
     end
   end
 
-  # Edytuje istniejącego wyborcę.
-  #
-  # @return [void]
   def edit
-    @wyborca = Wyborca.find(params[:id])
-    Rails.logger.info "Edytowano wyborcę o ID: #{@wyborca.id}."
+    @wybory = Wybory.find(params[:id])
   end
 
-  # Aktualizuje istniejącego wyborcę na podstawie podanych parametrów.
-  #
-  # @return [void]
   def update
-    @wyborca = Wyborca.find(params[:id])
-    if @wyborca.update(wyborca_params)
-      Rails.logger.info "Zaktualizowano wyborcę o ID: #{@wyborca.id}."
-      redirect_to @wyborca
+    @wybory = Wybory.find(params[:id])
+    if @wybory.update(wybory_params)
+      redirect_to @wybory
     else
-      Rails.logger.warn "Nie udało się zaktualizować wyborcy o ID: #{@wyborca.id}. Błędy: #{@wyborca.errors.full_messages.join(', ')}"
       render :edit
     end
   end
 
-  # Usuwa istniejącego wyborcę.
-  #
-  # @return [void]
   def destroy
-    @wyborca = Wyborca.find(params[:id])
-    @wyborca.destroy
-    Rails.logger.info "Usunięto wyborcę o ID: #{@wyborca.id}."
-    redirect_to wyborcas_path
+    @wybory = Wybory.find(params[:id])
+    @wybory.destroy
+    redirect_to wybories_path
+  end
+
+  def wyniki
+    @zakonczone_wybory = Wybory.where('data_zakonczenia < ?', Time.current).order(data_zakonczenia: :desc)
   end
 
   private
 
-  # Definiuje dozwolone parametry dla wyborcy.
-  #
-  # @return [ActionController::Parameters] Zwraca dozwolone parametry.
-  def wyborca_params
-    params.require(:wyborca).permit(:imie, :nazwisko, :numer_tel, :email, :password, :password_confirmation)
+  def wybory_params
+    params.require(:wybory).permit(:tytul, :id_typu_wyborow, :data_rozpoczecia, :data_zakonczenia, :kryteria_glosowania, :max_votes)
   end
 end
