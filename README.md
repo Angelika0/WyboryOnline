@@ -6,11 +6,12 @@ Ensure you have Ruby version 3.2.0 installed.
 
 System dependencies
 Make sure you have the following system dependencies installed:
-  SQLite3
-  Node.js
-  Yarn
-  Bundler
-  Configuration
+    
+    SQLite3
+    Node.js
+    Yarn
+    Bundle
+Configuration
 
 Clone the repository to your local machine:
     
